@@ -1,0 +1,8 @@
+# Python environments
+.env
+.venv/
+venv/
+pyvenv.cfg
+
+# My TODO file
+TODO.txt
