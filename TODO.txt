@@ -1,0 +1,11 @@
+End result for this scraper: 
+To produce a csv file with the following format: 
+(The following is just an example)
+ward, vacancy amount
+xx区, 1
+xx区, 3
+...
+xx区, 0
+
+-[] Try to navigate the information tree using bs
+-[] Add error-checking mechanisms
