@@ -7,5 +7,8 @@ xx区, 3
 ...
 xx区, 0
 
--[] Try to navigate the information tree using bs
+-[] Add csv rendering feature
 -[] Add error-checking mechanisms
+-[] Add content to README.md
+
+-[x] Try to navigate the information tree using bs

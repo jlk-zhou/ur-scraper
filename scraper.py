@@ -1,9 +1,9 @@
 """This web scraper collects information on which ward(s) in Tokyo 23 wards
-have UR rental property vacancies available, and how many. """
+have UR rental property vacancies available, and how many."""
 
 from bs4 import BeautifulSoup
 from re import compile
-from selenium import webdriver 
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 # Initialize Selenium to load DOM into bs object
@@ -13,18 +13,16 @@ driver = webdriver.Chrome(options=options)
 driver.get("https://www.ur-net.go.jp/chintai/kanto/tokyo/area/")
 
 pageSource = driver.page_source
-bs = BeautifulSoup(pageSource, 'html.parser')
+bs = BeautifulSoup(pageSource, "html.parser")
 
 # Find ward elements
 # UR seems to use 100-123 for encoding Tokyo 23 wards
-wards = bs.find_all("li", 
-                    {"class": "item_list js-searchMain", 
-                     "data-count-key": compile("^1\d\d$")})
+wards = bs.find_all(
+    "li", {"class": "item_list js-searchMain", "data-count-key": compile("^1\d\d$")}
+)
 
 # Print out data
-for ward in wards: 
-    ward_name = ward.find("em", 
-                          {"class": "js-label-text"}).get_text()
-    ward_num = ward.find("span", 
-                         {"class": "item_count js-searchMain-count"}).get_text()
+for ward in wards:
+    ward_name = ward.find("em", {"class": "js-label-text"}).get_text()
+    ward_num = ward.find("span", {"class": "item_count js-searchMain-count"}).get_text()
     print(f"{ward_name}, {ward_num}")
